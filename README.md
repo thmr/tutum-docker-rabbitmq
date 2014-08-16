@@ -17,7 +17,7 @@ Running the RabbitMQ server
 
 Run the following command to start rabbitmq:
 
-	docker run -d -p 5672:5672 -p 15672:15672 tutum/rabbitmq
+	docker run -d -p 5672:5672 -p 15672:15672 -p 15674:15674 tutum/rabbitmq
 
 The first time that you run your container, a new random password will be set.
 To get the password, check the logs of the container by running:
