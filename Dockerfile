@@ -7,6 +7,8 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F7B8CEA6056E8E56 &&
     apt-get update && \
     apt-get install -y rabbitmq-server pwgen && \
     rabbitmq-plugins enable rabbitmq_management && \
+	rabbitmq-plugins enable rabbitmq_stomp && \
+	rabbitmq-plugins enable rabbitmq_web_stomp && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -19,5 +21,5 @@ ADD run.sh /run.sh
 ADD set_rabbitmq_password.sh /set_rabbitmq_password.sh
 RUN chmod 755 ./*.sh
 
-EXPOSE 5672 15672
+EXPOSE 5672 15672 15674 61613
 CMD ["/run.sh"]
