@@ -16,6 +16,8 @@ RUN echo "ERLANGCOOKIE" > /var/lib/rabbitmq/.erlang.cookie
 RUN chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
 RUN chmod 400 /var/lib/rabbitmq/.erlang.cookie
 
+VOLUME /var/lib/rabbitmq
+
 # Add scripts
 ADD run.sh /run.sh
 ADD set_rabbitmq_password.sh /set_rabbitmq_password.sh
